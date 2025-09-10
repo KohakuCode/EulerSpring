@@ -25,7 +25,13 @@ public class Euler8 {
     private long getProductOfNumbers(String numbers){
         long product = 1;
         for (int x = 0; x < numbers.length(); x++){
-            product = product * Character.getNumericValue(numbers.charAt(x)); //get number as int at index x
+            int digit = Character.getNumericValue(numbers.charAt(x)); //get number as int at index x
+
+            if(digit == 0) {
+                return 0;
+            }
+
+            product *= digit;
         }
         return product;
     }
