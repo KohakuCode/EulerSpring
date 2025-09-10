@@ -8,26 +8,25 @@ public class Euler8 {
 
     /**
      * Gets the largest product of thirteen adjacent digits of checkDigitNumber
-     *
      */
-    public long getLargestProduct(){
+    public long getLargestProduct() {
         long largestProduct = 0;
 
-        for(int i = 0; i <= checkDigitNumber.length() - 13; i++) {
-            long currentProduct = getProductOfNumbers(checkDigitNumber.substring(i, i+13));
-            if (currentProduct > largestProduct){
+        for (int i = 0; i <= checkDigitNumber.length() - 13; i++) {
+            long currentProduct = getProductOfNumbers(checkDigitNumber.substring(i, i + 13));
+            if (currentProduct > largestProduct) {
                 largestProduct = currentProduct;
             }
         }
         return largestProduct;
     }
 
-    private long getProductOfNumbers(String numbers){
+    private long getProductOfNumbers(String numbers) {
         long product = 1;
-        for (int x = 0; x < numbers.length(); x++){
+        for (int x = 0; x < numbers.length(); x++) {
             int digit = Character.getNumericValue(numbers.charAt(x)); //get number as int at index x
 
-            if(digit == 0) {
+            if (digit == 0) {
                 return 0;
             }
 
