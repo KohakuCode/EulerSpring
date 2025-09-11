@@ -77,10 +77,8 @@ public class Euler8 {
 
         } catch (IOException e) {
             // If there is an I/O error (e.g., file can’t be read),
-            // log the error and the code continues
-            log.error("Failed to read the resource file.", e);
-            // NOW WHAT? You must return something
-            return null;
+            // wrap it into a RuntimeException and stop program execution.
+            throw new RuntimeException("Failed to read the resource file.", e);
         }
     }
 }
