@@ -1,6 +1,6 @@
 package com.Kohaku.EulerSpring;
 
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
+@Slf4j
 public class EulerController {
 
     @Autowired
@@ -28,7 +29,7 @@ public class EulerController {
      */
     @GetMapping(value="/euler6/", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Integer> euler6(){
-        System.out.println(euler6.sumSquareDifference());
+        log.info("Result of Euler6: {}", euler6.sumSquareDifference());
         return ResponseEntity.ok(euler6.sumSquareDifference());
     }
 
@@ -41,6 +42,7 @@ public class EulerController {
      */
     @GetMapping(value="/euler7/{input}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Long> getResultEuler7(@PathVariable(value = "input") int input){
+        log.info("Result of Euler7: {}", euler7.getNthPrimeNumber(input));
         return ResponseEntity.ok(euler7.getNthPrimeNumber(input));
     }
 
@@ -54,6 +56,7 @@ public class EulerController {
      */
     @GetMapping(value="/euler8/", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Long> getResultEuler8(){
+        log.info("Result of Euler8: {}", euler8.getLargestProduct());
         return ResponseEntity.ok(euler8.getLargestProduct());
     }
 

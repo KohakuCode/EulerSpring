@@ -1,5 +1,6 @@
 package com.Kohaku.EulerSpring;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -7,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-
+@Slf4j
 @Component
 public class Euler8 {
     private final int ADJACENT_DIGIT_COUNT = 13;
