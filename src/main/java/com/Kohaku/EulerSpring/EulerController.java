@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 @Slf4j
 public class EulerController {
-
+    @Autowired
+    private Euler10 euler10;
     @Autowired
     private Euler8 euler8;
     @Autowired
@@ -58,6 +59,12 @@ public class EulerController {
     public ResponseEntity<Long> getResultEuler8(){
         log.info("Result of Euler8: {}", euler8.getLargestProduct());
         return ResponseEntity.ok(euler8.getLargestProduct());
+    }
+
+    @GetMapping(value="/euler10/", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Long> getResultEuler10(){
+        log.info("Result of Euler10: {}", euler10.sumOfPrimesBelow2M());
+        return ResponseEntity.ok(euler10.sumOfPrimesBelow2M());
     }
 
 
