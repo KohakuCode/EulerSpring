@@ -1,5 +1,6 @@
 package com.Kohaku.EulerSpring;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -7,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-
+@Slf4j
 @Component
 public class Euler8 {
     private final int ADJACENT_DIGIT_COUNT = 13;
@@ -76,8 +77,10 @@ public class Euler8 {
 
         } catch (IOException e) {
             // If there is an I/O error (e.g., file can’t be read),
-            // wrap it into a RuntimeException and stop program execution.
-            throw new RuntimeException("Failed to read the resource file.", e);
+            // log the error and the code continues
+            log.error("Failed to read the resource file.", e);
+            // NOW WHAT? You must return something
+            return null;
         }
     }
 }
