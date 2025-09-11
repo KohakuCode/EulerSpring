@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Euler6 {
     @Autowired
-    private SumSquare sumSquare;
+    private MathHelper mathHelper;
 
 
     /**
@@ -17,7 +17,7 @@ public class Euler6 {
      */
 
     public int sumSquareDifference() {
-        return sumSquare.getSquareOfSum() - sumSquare.getSumOfSquares();
+        return mathHelper.getSquareOfSum() - mathHelper.getSumOfSquares();
     }
 
 
