@@ -9,7 +9,6 @@ public class EulerSpringApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(EulerSpringApplication.class, args);
-		// var euler7 = context.getBean(Euler7.class);
 
 	}
 
