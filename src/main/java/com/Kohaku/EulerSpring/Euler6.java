@@ -15,7 +15,6 @@ public class Euler6 {
      * Finds the difference of the sum of squares and the square of the sum of the first 100 natural numbers
      * @return sumSquareDifference
      */
-
     public int sumSquareDifference() {
         return mathHelper.getSquareOfSum() - mathHelper.getSumOfSquares();
     }
