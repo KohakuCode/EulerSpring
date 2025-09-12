@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Controller
 @Slf4j
 public class EulerController {
-
+    @Autowired
+    private Euler10 euler10;
     @Autowired
     private Euler8 euler8;
     @Autowired
@@ -58,6 +59,21 @@ public class EulerController {
     public ResponseEntity<Long> getResultEuler8(){
         log.info("Result of Euler8: {}", euler8.getLargestProduct());
         return ResponseEntity.ok(euler8.getLargestProduct());
+    }
+
+    /**
+     * REST controller endpoint to get the solution for Project Euler Problem 10.
+     * <p>
+     * This method handles HTTP GET requests to the {@code /euler10/} path. It calculates
+     * the sum of all primes below two million, logs the result, and returns it in a JSON format
+     * with an HTTP 200 (OK) status.
+     *
+     * @return A {@link ResponseEntity} containing the final sum as a long in the response body.
+     */
+    @GetMapping(value="/euler10/", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Long> getResultEuler10(){
+        log.info("Result of Euler10: {}", euler10.sumOfPrimesBelow2M());
+        return ResponseEntity.ok(euler10.sumOfPrimesBelow2M());
     }
 
 

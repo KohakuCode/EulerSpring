@@ -1,6 +1,7 @@
 package com.Kohaku.EulerSpring;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -13,6 +14,8 @@ import java.util.stream.Collectors;
 public class Euler8 {
     private final int ADJACENT_DIGIT_COUNT = 13;
     private final String digitString = loadNumberFromFile("/euler_number.txt");
+    @Autowired
+    private MathHelper mathHelper;
 
 
     /**
@@ -27,7 +30,7 @@ public class Euler8 {
         long largestProduct = 0;
 
         for (int i = 0; i <= digitString.length() - ADJACENT_DIGIT_COUNT; i++) {
-            long currentProduct = getProductOfNumbers(digitString.substring(i, i + ADJACENT_DIGIT_COUNT));
+            long currentProduct = mathHelper.getProductOfNumbers(digitString.substring(i, i + ADJACENT_DIGIT_COUNT));
             if (currentProduct > largestProduct) {
                 largestProduct = currentProduct;
             }
@@ -35,19 +38,7 @@ public class Euler8 {
         return largestProduct;
     }
 
-    private long getProductOfNumbers(String numbers) {
-        long product = 1;
-        for (int x = 0; x < numbers.length(); x++) {
-            int digit = Character.getNumericValue(numbers.charAt(x)); //get number as int at index x
 
-            if (digit == 0) {
-                return 0;
-            }
-
-            product *= digit;
-        }
-        return product;
-    }
 
     /**
      * Loads the numeric content from the resource file <code>euler_number.txt</code>.
